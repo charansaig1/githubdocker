@@ -31,8 +31,16 @@ jobs:
 
       - name: Tag Docker image
         run: |
-          docker tag my-node-app01:latest ${{ secrets.DOCKER_USERNAME }}/my-node-app01:0.001
+          docker tag my-node-app01:0.001 ${{ secrets.DOCKER_USERNAME }}/my-node-app01:0.002
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/my-node-app01:0.001
+          docker push ${{ secrets.DOCKER_USERNAME }}/my-node-app01:0.002
+
+      - name: Pull Docker image from Docker Hub
+        run: |
+          docker pull ${{ secrets.DOCKER_USERNAME }}/my-node-app01:0.002
+
+      - name: Run Docker container
+        run: |
+          docker run -d -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/my-node-app01:0.002
