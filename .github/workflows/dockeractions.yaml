@@ -31,8 +31,8 @@ jobs:
 
       - name: Tag Docker image
         run: |
-          docker tag my-node-app:latest ${{ secrets.DOCKER_USERNAME }}/my-node-app:latest
+          docker tag my-node-app01:latest ${{ secrets.DOCKER_USERNAME }}/my-node-app01:0.001
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/my-node-app:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/my-node-app01:0.001
