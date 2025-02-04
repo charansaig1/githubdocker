@@ -4,7 +4,7 @@ FROM node:20-alpine
 #  Set the working directory inside the container
 WORKDIR /usr/src/app
 
-# Copy the backend files into the container
+# Copy the backend files into the container 
 COPY backend/ .
 
 #  Copy package.json and package-lock.json (if available) into the container
