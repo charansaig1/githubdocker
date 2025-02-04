@@ -23,10 +23,6 @@ jobs:
         run: |
           docker build -t my-node-app02 .
 
-      - name: Build Docker image
-        run: |
-          docker build -t my-node-app02:0.001 .
-
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
